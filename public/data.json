@@ -1,0 +1,54 @@
+{
+    "users": [
+      {
+        "id": "1",
+        "username": "demo",
+        "password": "123",
+        "displayName": "Demo User",
+        "avatar": "https://ui-avatars.com/api/?name=Demo+User&background=random"
+      }
+    ],
+    "conversations": [
+      {
+        "id": "1",
+        "participants": ["1", "2"],
+        "messages": [
+          {
+            "id": "1",
+            "sender": "2",
+            "text": "Hey there! Welcome to the chat app.",
+            "timestamp": "2025-03-30T10:00:00Z"
+          },
+          {
+            "id": "2",
+            "sender": "1",
+            "text": "Thanks! This looks great.",
+            "timestamp": "2025-03-30T10:01:00Z"
+          }
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "id": "2",
+        "username": "support",
+        "displayName": "Support Team",
+        "avatar": "https://ui-avatars.com/api/?name=Support+Team&background=0D8ABC&color=fff",
+        "status": "online"
+      },
+      {
+        "id": "3",
+        "username": "john",
+        "displayName": "John Doe",
+        "avatar": "https://ui-avatars.com/api/?name=John+Doe&background=random",
+        "status": "offline"
+      },
+      {
+        "id": "4",
+        "username": "jane",
+        "displayName": "Jane Smith",
+        "avatar": "https://ui-avatars.com/api/?name=Jane+Smith&background=random",
+        "status": "away"
+      }
+    ]
+  }
