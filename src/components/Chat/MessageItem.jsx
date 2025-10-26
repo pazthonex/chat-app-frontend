@@ -1,9 +1,6 @@
 import React from 'react';
 
-const MessageItem = ({ message, isOwn, senderName, senderAvatar }) => {
-
-  console.log(message, isOwn, senderName, senderAvatar);
-  
+const MessageItem = ({ message, isOwn, senderName, senderAvatar }) => {  
   // Format timestamp to readable time
   const formatTime = (timestamp) => {
     const date = new Date(timestamp);

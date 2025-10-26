@@ -46,18 +46,11 @@ export const ChatProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await api.get("/messages");
-      console.log('res messages:', response);
       
       const userConversations =  response.data;
-      
-      // Filter conversations for current user
-      // const userConversations = data.filter(
-      //   (conv) => conv.includes(currentUser.id)
-      // );
-      
+
       setConversations(userConversations || []);
       
-      // Set active conversation to first one if available
       if (userConversations.length > 0 && !activeConversation) {
         setActiveConversation(userConversations);
       }
@@ -73,12 +66,9 @@ export const ChatProvider = ({ children }) => {
     if (!currentUser || !activeConversation) return;
     
     try {
-      // Create a new message
       const newMessage = {
-      //  id: Date.now().toString(),
          user_id: currentUser.id,
          message,
-       // timestamp: new Date().toISOString(),
       };
       console.log('activeConversation:',activeConversation,newMessage);
       let new_message;
@@ -90,21 +80,6 @@ export const ChatProvider = ({ children }) => {
       const updatedConversation = [
         ...activeConversation, new_message
       ];
-
-      // const updatedConversation = activeConversation.map(convo => {
-      //   if (convo.id === currentUser.id) {
-      //     return {
-      //       ...convo,
-      //       messages: [...convo.message, newMessage],
-      //     };
-      //   }
-      //   return convo;
-      // });
-
-      
-
-
-      console.log('updatedConversation:',updatedConversation);
       
       
       setActiveConversation(updatedConversation);

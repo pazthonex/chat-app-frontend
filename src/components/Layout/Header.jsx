@@ -15,13 +15,13 @@ const Header = () => {
         {currentUser && (
           <div className="flex items-center">
             <div className="mr-4 text-right">
-              <div className="text-sm font-medium text-gray-900">{currentUser.displayName}</div>
-              <div className="text-xs text-gray-500">@{currentUser.username}</div>
+              <div className="text-sm font-medium text-gray-900">{currentUser.name}</div>
+              <div className="text-xs text-gray-500">{currentUser.username}</div>
             </div>
             
             <img 
               src={currentUser.avatar} 
-              alt={currentUser.displayName}
+              alt={currentUser.name}
               className="w-8 h-8 rounded-full"
             />
             

@@ -55,7 +55,7 @@ const Register = () => {
     >
       <div>
         <label htmlFor="displayName" className="block text-sm font-medium text-gray-700 mb-1">
-          Display Name
+          Full Name
         </label>
         <input
           id="displayName"

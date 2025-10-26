@@ -23,22 +23,21 @@ export const AuthProvider = ({ children }) => {
     setError(null);
 
     try {
-      // In a real app, this would be an API call
-      const response = await api.get("/users");
-      console.log('response user:',response);
+      const users = {
+        username: username,
+        password: password
+      };
       
+      const response = await api.post("/login",users);      
       const data = response.data;
-      
-      const user = data.find(
-        (u) => u.username === username && u.password === password
-      );
+
+      const user = data.user;
       
       if (!user) {
         throw new Error('Invalid username or password');
       }
       
-      // Remove password before storing user
-      const { password: _, ...userWithoutPassword } = user;
+      const { password: _, ...userWithoutPassword } = user
       
       setCurrentUser(userWithoutPassword);
       localStorage.setItem('chatAppUser', JSON.stringify(userWithoutPassword));
@@ -51,44 +50,36 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (username, password, display_name) => {
+  const register = async (username, password, name) => {
     setLoading(true);
     setError(null);
 
     try {
-      // In a real app, this would be an API call
       const response = await api.get("/users");
       const data = response.data;
       
-      // Check if username already exists
       const existingUser = data.find((u) => u.username === username);
       if (existingUser) {
         throw new Error('Username already exists');
       }
    
 
-      
-      // In a real app, we would add the user to the database
-      // For this demo, we'll just simulate success and return a new user
       const newUser = {
         id: String(data.length + 1),
         username,
-        display_name,
+        name,
         password,
-        avatar: `https://ui-avatars.com/api/?name=${display_name.replace(' ', '+')}&background=random`
+        avatar: `https://ui-avatars.com/api/?name=${name.replace(' ', '+')}&background=random`
       };
       console.log(newUser);
       
       const register = await api.post("/users", newUser);
-      console.log('register::', register);
       
       if(register){
         setCurrentUser(newUser);
         localStorage.setItem('chatAppUser', JSON.stringify(newUser));
         return newUser;
-      }
-      console.log('register::', register);
-      
+      }      
       throw new Error('Registeration failed');
     } catch (error) {
       setError(error.message);

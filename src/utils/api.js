@@ -32,6 +32,22 @@ export const fetchData = async () => {
       throw error;
     }
   };
+
+  export const registerUser = async (users) => {
+    try {
+           const register = await api.post("/users", users);
+           console.log('register::', register);
+           
+      if (!register.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      return await register.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  };
+
   
   // In a real app, we would have functions like:
   // export const loginUser = async (username, password) => { ... }

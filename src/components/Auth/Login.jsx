@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <AuthForm
-      title="Welcome Back"
+      title="Chat Me"
       submitButtonText="Log In"
       onSubmit={handleSubmit}
       error={error}

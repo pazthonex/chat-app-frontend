@@ -53,7 +53,7 @@ const UserList = () => {
               <div className="relative flex-shrink-0">
                 <img 
                   src={contact.avatar} 
-                  alt={contact.displayName} 
+                  alt={contact.name} 
                   className="w-10 h-10 rounded-full"
                 />
                 <span 
@@ -67,7 +67,7 @@ const UserList = () => {
                 />
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium">{contact.display_name}</p>
+                <p className="text-sm font-medium">{contact.name}</p>
                 <p className="text-xs text-gray-500">
                   {contact.status === 'online' 
                     ? 'Online' 
