@@ -8,7 +8,7 @@ import { useChat } from '../../contexts/ChatContext';
 
 const ChatContainer = () => {
   const { currentUser } = useAuth();
-  const { activeConversation, loading } = useChat();
+  const { activeConversation } = useChat();
 
   return (
     <div className="h-screen flex flex-col">
