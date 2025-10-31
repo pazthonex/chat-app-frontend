@@ -33,6 +33,7 @@ const Login = () => {
           <Link to="/register" className="text-blue-600 hover:underline">
             Register
           </Link>
+          <p>Test CI/CD</p>
         </>
       }
     >
